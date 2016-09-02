@@ -107,3 +107,8 @@ func Control(name string, c svc.Cmd, to svc.State) error {
 	}
 	return nil
 }
+
+// Stop a service by name
+func Stop(name string) error {
+	return Control(name, svc.Stop, svc.Stopped)
+}

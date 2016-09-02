@@ -6,7 +6,6 @@ import (
 	"path/filepath"
 
 	"github.com/martinlindhe/winservice"
-	"golang.org/x/sys/windows/svc"
 	"gopkg.in/alecthomas/kingpin.v2"
 )
 
@@ -34,7 +33,7 @@ func main() {
 	case "start":
 		err = winservice.Start(*serviceName)
 	case "stop":
-		err = winservice.Control(*serviceName, svc.Stop, svc.Stopped)
+		err = winservice.Stop(*serviceName)
 	default:
 		log.Fatalf("unknown svc command: %v", *winServiceCommand)
 	}
